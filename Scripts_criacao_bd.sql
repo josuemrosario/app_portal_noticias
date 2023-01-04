@@ -10,3 +10,10 @@
 
 CREATE DATABASE pn;
 USE pn;
+
+
+/*=======================================
+// Table Noticias
+=======================================*/
+DESCRIBE noticias;
+SELECT * FROM noticias;

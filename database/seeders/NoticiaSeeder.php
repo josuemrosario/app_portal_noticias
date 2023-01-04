@@ -13,6 +13,8 @@ class NoticiaSeeder extends Seeder
      */
     public function run()
     {
-        //
+        //Aula 400
+        ini_set('memory_limit','512M');
+        \App\Models\Noticia::factory(1000)->create();
     }
 }

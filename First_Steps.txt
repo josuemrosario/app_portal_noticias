@@ -1,0 +1,58 @@
+SETTING UP THE PROJECT
+======================
+
+001 - Creating The project
+-------------------------------------------------------
+
+create-project --prefer-dist laravel/laravel=8.5.20 app_portal_noticias
+
+
+002 - Installing Redis on Windows (using WSL Ubuntu)
+-------------------------------------------------------
+
+refer to: https://redis.io/docs/getting-started/installation/install-redis-on-windows/
+
+
+curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+
+sudo apt-get update
+sudo apt-get install redis
+
+003 - Starting Redis
+-------------------------------------------------------
+
+sudo service redis-server start
+
+redis-cli 
+127.0.0.1:6379> ping
+PONG
+
+004 - Creating the Database
+-------------------------------------------------------
+
+CREATE DATABASE pn;
+USE pn;
+
+005 - Configuring Database on Laravel
+-------------------------------------------------------
+
+- Change .env files
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=pn
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+006 - Creating Model Factory Seeder and Controller
+-------------------------------------------------------
+
+A previous Model, Factory, Seeder and Controller was created. Run following migrate command
+
+php artisan migrate
+
+
