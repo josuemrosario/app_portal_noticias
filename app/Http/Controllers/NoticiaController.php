@@ -15,7 +15,12 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        //
+        //Aula 401 - Implementando a consulta e visualização das notícias
+        //Recupera as 10 primeiras noticias
+        $noticias = Noticia::orderByDesc('created_at')->limit(10)->get();
+
+        // chama a view noticia passando as 10 primeiras noticias
+        return view('noticia', ['noticias' => $noticias]);
     }
 
     /**

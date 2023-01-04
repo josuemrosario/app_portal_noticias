@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+//Aula 401 - Implementando a consulta e visualização das notícias
+//Implementa todas as rotas que executam os métodos de NoticiaController
+// Usar php artisan route:list para confirmar se forma devidamente mapeadas
+Route::Resource('noticia',App\Http\Controllers\NoticiaController::Class);
