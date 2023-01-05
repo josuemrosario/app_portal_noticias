@@ -1,0 +1,59 @@
+402. Instalando o pacote Debugbar para monitorar o tempo de execução das querys
+============================================================================================
+
+Passo a Passo: 
+- Tirar a aplicação do ar
+- Rodar o comando de instalação do debugbar
+- Configurar o app.php
+- Colocar a aplicação no ar
+
+debugbar - Serve para debugar aplicações Laravel.
+
+Pagina do debugbar
+https://github.com/barryvdh/laravel-debugbar
+
+Comando para instalar o Debugbar apenas em desenvolvimento
+composer require barryvdh/laravel-debugbar=v3.6.2 --dev
+
+
+403. Instalando e configurando o pacote Predis para conectar o Laravel com o Redis
+============================================================================================
+
+Predis - Pacote que permite comunicação com o Redis
+
+01 - Instalar o Predis
+composer require predis/predis=v1.1.7
+
+02 - Alterar .env
+
+CACHE_DRIVER=redis
+(...)
+REDIS_HOST=127.0.0.1
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+REDIS_CLIENT=predis
+
+
+404. Armazenando consultas em cache parte 1
+============================================================================================
+
+-> Para iniciar o ubuntu no Windows e o Redis, usar os comandos:
+Obs: Funciona apenas depois que for instalado
+
+Ubuntu
+sudo service redis-server start
+
+-> Iniciar linha de comando do redis
+redis-cli
+
+-> Abrir o monitoramento no redis
+monitor
+
+
+
+
+
+
+
+
+
