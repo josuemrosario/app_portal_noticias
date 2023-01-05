@@ -49,10 +49,20 @@ redis-cli
 -> Abrir o monitoramento no redis
 monitor
 
+Cache::put -> Salva um par:valor no cache
+Cache::get -> puxa uma chave do cache
 
 
+405. Armazenando consultas em cache parte 2
+============================================================================================
+
+Cache::has ->verifica se uma chave existe em cache
 
 
+406. Cache remember
+============================================================================================
+
+Cache::remember -> Confirma se uma chave existe, se não existir roda uma função de callback que cria a chave com o valor do retorno da função de callback. Retorna o valor consultado ou criado no cache.
 
 
 

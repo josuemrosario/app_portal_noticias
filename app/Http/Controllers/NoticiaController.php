@@ -18,7 +18,7 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        $noticias = [];
+        //$noticias = [];
         
         //Aula 401 - Implementando a consulta e visualização das notícias
         //Recupera as 10 primeiras noticias armazenadas em banco de dados
@@ -26,12 +26,32 @@ class NoticiaController extends Controller
 
         //Aula 404
         //Cria um dado dentro do Redis
-        Cache::put('site','teste@teste.com.br',10); //chave, valor, tempo em segundos para expirar o dado em memória
-
+        //Cache::put('site','teste@teste.com.br',10); //chave, valor, tempo em segundos para expirar o dado em memória
         //recupera o dado usando a chave
-        $site = Cache::get('site');
-        echo $site;
+        //$site = Cache::get('site');
+        //echo $site;
 
+        //Aula 405
+        
+        /*
+        $noticias = [];
+        if(Cache::has('dez_primeiras_noticias')){
+            //10 primeireias noticias estao em cache
+            $noticias = Cache::get('dez_primeiras_noticias');
+        }else{
+            //10 primeireias noticias não estao em cache
+            $noticias = Noticia::orderByDesc('created_at')->limit(10)->get();
+            Cache::put('dez_primeiras_noticias',$noticias,15);
+        }
+        */
+       
+        
+        //Aula 406
+        $noticias = [];
+        $noticias = Cache::remember('dez_primeiras_noticias',15,function(){
+            return Noticia::orderByDesc('created_at')->limit(10)->get();
+        });
+        
 
         // chama a view noticia passando as 10 primeiras noticias
         return view('noticia', ['noticias' => $noticias]);
